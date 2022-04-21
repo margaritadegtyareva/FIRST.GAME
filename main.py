@@ -1,5 +1,5 @@
 import pygame
-import random
+from object import *
 
 WIDTH = 360  # ширина игрового окна
 HEIGHT = 480 # высота игрового окна
@@ -16,6 +16,8 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("My Game")
 clock = pygame.time.Clock()
 
+sonic=Object(100,100)
+
 running = True
 while running:
     for event in pygame.event.get():
@@ -24,6 +26,9 @@ while running:
             running = False
     # Рендеринг
     screen.fill(WHITE)
+
+    screen.blit(sonic.image,sonic.rect)
+
     # после отрисовки всего, переворачиваем экран
     pygame.display.flip()
 
