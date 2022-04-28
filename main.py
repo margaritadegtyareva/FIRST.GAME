@@ -24,12 +24,35 @@ while running:
         # check for closing window
         if event.type == pygame.QUIT:
             running = False
-    # Рендеринг
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.draw.circle(
+                    screen, RED, event.pos, 20)
+                pygame.display.update()
+            elif event.button == 3:
+                pygame.draw.circle(
+                    screen, BLUE, event.pos, 20)
+                pygame.draw.rect(
+                    screen, GREEN,
+                    (event.pos[0] - 10,
+                     event.pos[1] - 10,
+                     20, 20))
+                pygame.display.update()
+            elif event.button == 2:
+                screen.fill(WHITE)
+                pygame.display.update()
+
+    '''#Рендеринг
     screen.fill(WHITE)
 
     screen.blit(sonic.image,sonic.rect)
 
     # после отрисовки всего, переворачиваем экран
-    pygame.display.flip()
+    pygame.display.flip()'''
 
     clock.tick(FPS)
+
+
+
+
